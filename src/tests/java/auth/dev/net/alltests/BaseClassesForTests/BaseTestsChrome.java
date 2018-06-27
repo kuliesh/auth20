@@ -11,7 +11,7 @@ public class BaseTestsChrome {
     public static void setup() {
         logger.info("Run browser...");
         System.setProperty("selenide.browser", "chrome");
-        System.setProperty("webdriver.chrome.driver", "D:/AutomationTest/auth20/src/tests/java/auth/dev/net/resources");
+        System.setProperty("webdriver.chrome.driver", "D:/AutomationTest/auth20/src/tests/java/auth/dev/net/resources/chromedriver.exe");
     }
 
     @AfterTest
