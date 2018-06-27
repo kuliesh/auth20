@@ -110,11 +110,10 @@ public class TestDisplayedElementsOnRegistration extends BaseTestsChrome {
 
         assertTrue(($(".submit")).isDisplayed());
         logger.info("Кнопка 'Зареєструвати скриньку' відображається");
-        //////////////////////////////////////////
-        logger.info("Переключаємося на українську локалізацію назад");
+
         refresh();
 
-        Thread.sleep(10000);
+        Thread.sleep(2000);
     }
 
     @Test
@@ -141,7 +140,7 @@ public class TestDisplayedElementsOnRegistration extends BaseTestsChrome {
         assertTrue(($(By.xpath("//section[2]/div/div[2]/input"))).isDisplayed());
         logger.info("Поле для вводу 'рік' відображається");
         assertTrue(($(By.xpath("//label[text()='Male']"))).isDisplayed());
-        logger.info("Радіобатон 'Чолвік' відображається");
+        logger.info("Радіобатон 'Чоловік' відображається");
         assertTrue(($(By.xpath("//label[text()='Female']"))).isDisplayed());
         logger.info("Радіобатон 'Жінка' відображається");
         assertTrue(($("#id-sender-name")).isDisplayed());
@@ -160,10 +159,9 @@ public class TestDisplayedElementsOnRegistration extends BaseTestsChrome {
 
         assertTrue(($(".submit")).isDisplayed());
         logger.info("Кнопка 'Зареєструвати скриньку' відображається");
-        //////////////////////////////////////////
-        logger.info("Переключаємося на українську локалізацію назад");
+
         refresh();
 
-        Thread.sleep(10000);
+        Thread.sleep(2000);
     }
 }
