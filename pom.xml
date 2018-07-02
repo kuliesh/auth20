@@ -183,9 +183,9 @@
                 <inherited>true</inherited>
                 <configuration>
                     <reportsDirectory>${basedir}/test-output</reportsDirectory>
-                    <!--suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/auth2.1RegresionTest.xml</suiteXmlFile>
-                    </suiteXmlFiles-->
+                    <suiteXmlFiles>
+                        <suiteXmlFile>src/tests/resources/auth20regresiontest.xml</suiteXmlFile>
+                    </suiteXmlFiles>
                 </configuration>
             </plugin>
         </plugins>
