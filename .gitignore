@@ -26,3 +26,11 @@ hs_err_pid*
 auth20.iml
 
 build/
+
+target/
+
+driver/
+
+logs/
+
+test-output/
