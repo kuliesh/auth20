@@ -132,7 +132,7 @@ public class TestDisplayedElementsOnRegistration extends BaseTestsChrome {
 
         SoftAssert softAssertion = new SoftAssert();
 
-        logger.info("Переключаємося на украънську локалізацію");
+        logger.info("Переключаємося на українську локалізацію");
         softAssertion.assertTrue($(By.xpath("//label[text()='Чоловік']")).isDisplayed(), "Радіобатон 'Чоловік' не відображається");
         softAssertion.assertTrue($(By.xpath("//label[text()='Жінка']")).isDisplayed(), "Радіобатон 'Жінка' не відображається");
 
