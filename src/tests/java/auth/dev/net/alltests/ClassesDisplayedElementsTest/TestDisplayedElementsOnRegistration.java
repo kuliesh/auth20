@@ -136,8 +136,7 @@ public class TestDisplayedElementsOnRegistration extends BaseTestsChrome {
         softAssertion.assertTrue($(By.xpath("//label[text()='Чоловік']")).isDisplayed(), "Радіобатон 'Чоловік' не відображається");
         softAssertion.assertTrue($(By.xpath("//label[text()='Жінка']")).isDisplayed(), "Радіобатон 'Жінка' не відображається");
 
-        logger.info("Переключаємося на російську локалізацію");
-        $(new Selectors.ByText("Русский")).click();
+
         softAssertion.assertTrue($(By.xpath("//label[text()='Мужчина']")).isDisplayed(), "Радіобатон 'Мужчина' не відображається");
         softAssertion.assertTrue($(By.xpath("//label[text()='Женщина']")).isDisplayed(), "Радіобатон 'Женщина' не відображається");
 
