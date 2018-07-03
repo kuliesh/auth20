@@ -21,6 +21,8 @@ public class TestDisplayedTextOnRegistrationRU extends BaseTestsChrome {
 
     final static Logger logger = Logger.getLogger(TestDisplayedTextOnRegistrationRU.class);
 
+    private String section = "//section[3]/section[2]/div/";
+
     //Активація дата провайдера
     @DataProvider
     public Object[][] TextRUForRegistration (Method method){
@@ -61,5 +63,20 @@ public class TestDisplayedTextOnRegistrationRU extends BaseTestsChrome {
 
         softAssertion.assertAll();
 
+    }
+
+    @Test
+    public void textRuNO(){
+
+        SoftAssert softAssertion = new SoftAssert();
+
+        softAssertion.assertFalse($(By.xpath("//input[id='id-first-name'][@placeholder='Имя']")).isDisplayed(), "Плехолдер 'Имя' не відображається"); //переробити даний запит
+        softAssertion.assertTrue($(By.xpath("//section[1]/div/div[2]/input[@placeholder='Фамилия']")).isDisplayed(), "Плехолдер 'Фамилия' не відображається");
+        softAssertion.assertTrue($(By.xpath(""+section+"div[1]/input[@placeholder='число']")).isDisplayed(), "Плехолдер 'число' не відображається");
+        softAssertion.assertEquals("месяц", $(By.xpath(""+section+"section/div/span")).getText(),"Напис 'месяц' не відображається");
+        softAssertion.assertTrue($(By.xpath(""+section+"div[2]/input[@placeholder='год']")).isDisplayed(), "Плехолдер 'год' не відображається");
+        softAssertion.assertEquals("На указанный мобильный телефон будет отправлено сообщение с кодом активации" , $(By.xpath("//section[7]/button/span[1]")).getText(), "Строка 'На указанный мобильный телефон будет отправлено сообщение с кодом активации' невыдображаэться");
+
+        softAssertion.assertAll();
     }
 }

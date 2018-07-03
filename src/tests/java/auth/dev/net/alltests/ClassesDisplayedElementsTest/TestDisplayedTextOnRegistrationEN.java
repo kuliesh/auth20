@@ -21,6 +21,8 @@ public class TestDisplayedTextOnRegistrationEN extends BaseTestsChrome {
 
     final static Logger logger = Logger.getLogger(TestDisplayedTextOnRegistrationEN.class);
 
+    private String section = "//section[3]/section[2]/div/";
+
     //Активація дата провайдера
     @DataProvider
     public Object[][] TextUAForRegistration (Method method){
@@ -67,6 +69,21 @@ public class TestDisplayedTextOnRegistrationEN extends BaseTestsChrome {
         SoftAssert softAssertion = new SoftAssert();
 
         softAssertion.assertEquals(""+textReg+"", $(By.xpath(""+elementReg+"")).getText(), "Строка '"+textReg+"' не відображається для Англійської локалізації");
+
+        softAssertion.assertAll();
+    }
+
+    @Test
+    public void textEnNO(){
+
+        SoftAssert softAssertion = new SoftAssert();
+
+        softAssertion.assertFalse($(By.xpath("//input[id='id-first-name'][@placeholder='First name']")).isDisplayed(), "Плехолдер 'First name' не відображається"); //переробити даний запит
+        softAssertion.assertTrue($(By.xpath("//section[1]/div/div[2]/input[@placeholder='Last name']")).isDisplayed(), "Плехолдер 'Last name' не відображається");
+        softAssertion.assertTrue($(By.xpath(""+section+"div[1]/input[@placeholder='Day']")).isDisplayed(), "Плехолдер 'Day' не відображається");
+        softAssertion.assertEquals("Month", $(By.xpath(""+section+"section/div/span")).getText(),"Напис 'Month' не відображається");
+        softAssertion.assertTrue($(By.xpath(""+section+"div[2]/input[@placeholder='Year']")).isDisplayed(), "Плехолдер 'Year' не відображається");
+        softAssertion.assertEquals("A message with an activation code will be sent to the phone provided here" , $(By.xpath("//section[7]/button/span[1]")).getText(), "Строка 'A message with an activation code will be sent to the phone provided here' невыдображаэться");
 
         softAssertion.assertAll();
     }
