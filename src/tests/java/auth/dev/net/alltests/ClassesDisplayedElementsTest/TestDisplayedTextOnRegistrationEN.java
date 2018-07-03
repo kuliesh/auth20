@@ -25,21 +25,11 @@ public class TestDisplayedTextOnRegistrationEN extends BaseTestsChrome {
 
     //Активація дата провайдера
     @DataProvider
-    public Object[][] TextUAForRegistration (Method method){
+    public Object[][] TextENForRegistration (Method method){
 
         ApachePOIreadHelper excelReader = new ApachePOIreadHelper();
         File file = new File("D:/AutomationTest/auth20/src/tests/java/auth/dev/net/data_files/text_registration_page_data.xlsx");
         excelReader.setExcelFile(String.valueOf(file), "textUA");
-        List rowsNo = excelReader.getRowContains(method.getName(), 0 );
-        return excelReader.getTableArray(rowsNo);
-    }
-
-    @DataProvider
-    public Object[][] TextEnForRegistration (Method method){
-
-        ApachePOIreadHelper excelReader = new ApachePOIreadHelper();
-        File file = new File("D:/AutomationTest/auth20/src/tests/java/auth/dev/net/data_files/text_registration_page_data.xlsx");
-        excelReader.setExcelFile(String.valueOf(file), "textEN");
         List rowsNo = excelReader.getRowContains(method.getName(), 0 );
         return excelReader.getTableArray(rowsNo);
     }
@@ -56,7 +46,7 @@ public class TestDisplayedTextOnRegistrationEN extends BaseTestsChrome {
         $(new Selectors.ByText("English")).click();
     }
 
-    @Test(dataProvider = "TextEnForRegistration")
+    @Test(dataProvider = "TextENForRegistration")
     public void textEn(ArrayList data) {
         String local= String.valueOf(data.get(0));
         String textReg = String.valueOf(data.get(1));
@@ -83,7 +73,7 @@ public class TestDisplayedTextOnRegistrationEN extends BaseTestsChrome {
         softAssertion.assertTrue($(By.xpath(""+section+"div[1]/input[@placeholder='Day']")).isDisplayed(), "Плехолдер 'Day' не відображається");
         softAssertion.assertEquals("Month", $(By.xpath(""+section+"section/div/span")).getText(),"Напис 'Month' не відображається");
         softAssertion.assertTrue($(By.xpath(""+section+"div[2]/input[@placeholder='Year']")).isDisplayed(), "Плехолдер 'Year' не відображається");
-        softAssertion.assertEquals("A message with an activation code will be sent to the phone provided here" , $(By.xpath("//section[7]/button/span[1]")).getText(), "Строка 'A message with an activation code will be sent to the phone provided here' невыдображаэться");
+        softAssertion.assertEquals("A message with an activation code will be sent to the phone provided here" , $(By.xpath("//section[7]/button/span[1]")).getText(), "Строка 'A message with an activation code will be sent to the phone provided here' невідображаэться");
 
         softAssertion.assertAll();
     }

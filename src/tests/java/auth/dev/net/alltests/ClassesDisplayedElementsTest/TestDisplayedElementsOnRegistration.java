@@ -70,7 +70,7 @@ public class TestDisplayedElementsOnRegistration extends BaseTestsChrome {
         Thread.sleep(2000);
     }
 
-    public void isDispayedElements(){
+    public void isDispayedElementsReg(){
 
         SoftAssert softAssertion = new SoftAssert();
 
@@ -99,7 +99,7 @@ public class TestDisplayedElementsOnRegistration extends BaseTestsChrome {
 
         logger.info("Відображення елементів на сторінці реєстрації при виборі української локалізації");
 
-        isDispayedElements();
+        isDispayedElementsReg();
     }
 
     @Test
@@ -110,7 +110,7 @@ public class TestDisplayedElementsOnRegistration extends BaseTestsChrome {
         logger.info("Переключаємося на російську локалізацію");
         $(new Selectors.ByText("Русский")).click();
 
-        isDispayedElements();
+        isDispayedElementsReg();
     }
 
     @Test
@@ -122,7 +122,7 @@ public class TestDisplayedElementsOnRegistration extends BaseTestsChrome {
         logger.info("Переключаємося на англійську локалізацію");
         $(new Selectors.ByText("English")).click();
 
-        isDispayedElements();
+        isDispayedElementsReg();
     }
 
     @Test
