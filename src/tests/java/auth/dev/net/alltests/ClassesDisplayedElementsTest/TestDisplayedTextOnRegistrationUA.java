@@ -46,7 +46,7 @@ public class TestDisplayedTextOnRegistrationUA extends BaseTestsChrome {
     }
 
     @Test(dataProvider = "TextUAForRegistration")
-    public void textUkrR(ArrayList data) {
+    public void textUkr(ArrayList data) {
 
         String local= String.valueOf(data.get(0));
         String textReg = String.valueOf(data.get(1));
