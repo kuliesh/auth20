@@ -56,9 +56,8 @@ public class TestForbiddenPassword extends BaseTestsChrome {
 
         SoftAssert softAssertion = new SoftAssert();
 
-        $(By.cssSelector("#id-password")).sendKeys(inputPassword);
+        $(By.cssSelector("#id-password")).sendKeys(""+inputPassword+"");
         $(By.cssSelector("#id-password-repeat")).click();
-        $(By.cssSelector(".input-default__error.is-size-normal")).shouldHave(text(displayedError));
 
         softAssertion.assertEquals(""+displayedError+"", $(By.cssSelector(".input-default__error.is-size-normal")).getText(), "Пароль '"+inputPassword+"' сприймається системою для Української локалізації");
 

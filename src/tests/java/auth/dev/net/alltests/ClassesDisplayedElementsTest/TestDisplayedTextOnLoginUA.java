@@ -33,7 +33,7 @@ public class TestDisplayedTextOnLoginUA extends BaseTestsChrome {
 
     @BeforeClass
     public void openPage() throws InterruptedException {
-        logger.info("Open page of registration");
+        logger.info("Open page of Login");
         open("http://accounts-new.dev.ukr.net/login"); //відкриваємо сторінку входу до поштової скриньки
         Thread.sleep(2000);
         refresh();
