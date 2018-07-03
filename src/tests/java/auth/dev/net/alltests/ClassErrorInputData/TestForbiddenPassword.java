@@ -27,7 +27,7 @@ public class TestForbiddenPassword extends BaseTestsChrome {
     public Object[][] ForbiddenPasswordUkr (Method method) {
 
         ApachePOIreadHelper excelReader = new ApachePOIreadHelper();
-        File file = new File("D:/AutomationTest/auth20/src/tests/java/auth/dev/net/data_files/test_forbidden_password.xlsx");
+        File file = new File("//auth20/src/tests/java/auth/dev/net/data_files/test_forbidden_password.xlsx");
         excelReader.setExcelFile(String.valueOf(file), "ForbiddenTest");
         List rowsNo = excelReader.getRowContains(method.getName(), 0);
         return excelReader.getTableArray(rowsNo);
@@ -36,9 +36,8 @@ public class TestForbiddenPassword extends BaseTestsChrome {
     @BeforeClass
     public void openPage() throws InterruptedException {
         logger.info("Open page of registration");
-        open("http://accounts-new.dev.ukr.net/login"); //відкриваємо сторінку входу до поштової скриньки
+        open("http://accounts.ukr.net/login"); //відкриваємо сторінку входу до поштової скриньки
         $(By.linkText("Створити скриньку")).click(); //переходимо на сторінку реєстрації поштової скриньки
-        open("http://accounts-new.dev.ukr.net/registration");
         Thread.sleep(2000);
         refresh();
     }
