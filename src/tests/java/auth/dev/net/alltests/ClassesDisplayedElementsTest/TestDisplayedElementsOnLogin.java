@@ -100,7 +100,7 @@ public class TestDisplayedElementsOnLogin extends BaseTestsChrome {
 
         logger.info("Переключаємося на англійську локалізацію");
         $(new Selectors.ByText("English")).click();
-
+//
         isDispayedElementsLog();
     }
 }
