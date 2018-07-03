@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="RegressionTests" thread-count="5">
-    <test name="regressiontest">
+    <test name="ElementsOnRegistration">
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="auth.dev.net.alltests.ClassesDisplayedElementsTest.TestDisplayedElementsOnRegistration"/>
@@ -11,4 +11,15 @@
             <class name="auth.dev.net.alltests.ClassesDisplayedElementsTest.TestDisplayedTextOnRegistrationEN"/>
         </classes>
     </test>
+
+    <test name="ElementsOnLogin">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="auth.dev.net.alltests.ClassesDisplayedElementsTest.TestDisplayedElementsOnLogin"/>
+            <class name="auth.dev.net.alltests.ClassesDisplayedElementsTest.TestDisplayedTextOnLoginUA"/>
+            <class name="auth.dev.net.alltests.ClassesDisplayedElementsTest.TestDisplayedTextOnLoginRU"/>
+            <class name="auth.dev.net.alltests.ClassesDisplayedElementsTest.TestDisplayedTextOnLoginEN"/>
+        </classes>
+    </test>
+
 </suite>

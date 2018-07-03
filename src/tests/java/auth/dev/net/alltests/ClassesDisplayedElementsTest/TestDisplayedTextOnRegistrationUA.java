@@ -43,11 +43,10 @@ public class TestDisplayedTextOnRegistrationUA extends BaseTestsChrome {
         open("http://accounts-new.dev.ukr.net/login"); //відкриваємо сторінку входу до поштової скриньки
         $(By.linkText("Створити скриньку")).click(); //переходимо на сторінку реєстрації поштової скриньки
         Thread.sleep(2000);
-        refresh();
     }
 
     @Test(dataProvider = "TextUAForRegistration")
-    public void textUkr(ArrayList data) {
+    public void textUkrR(ArrayList data) {
 
         String local= String.valueOf(data.get(0));
         String textReg = String.valueOf(data.get(1));
@@ -62,6 +61,7 @@ public class TestDisplayedTextOnRegistrationUA extends BaseTestsChrome {
         softAssertion.assertEquals(""+textReg+"", $(By.xpath(""+elementReg+"")).getText(), "Строка '"+textReg+"' не відображається для Української локалізації");
 
         softAssertion.assertAll();
+        refresh();
     }
 
     @Test
@@ -77,5 +77,6 @@ public class TestDisplayedTextOnRegistrationUA extends BaseTestsChrome {
         softAssertion.assertEquals("На вказаний мобільний телефон буде відправлено повідомлення з кодом активації" , $(By.xpath("//section[7]/button/span[1]")).getText(), "Строка 'На вказаний мобільний телефон буде відправлено повідомлення з кодом активації' невыдображаэться");
 
         softAssertion.assertAll();
+        refresh();
     }
 }

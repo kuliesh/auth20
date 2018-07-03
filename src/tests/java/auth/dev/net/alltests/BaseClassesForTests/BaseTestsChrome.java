@@ -1,6 +1,8 @@
 package auth.dev.net.alltests.BaseClassesForTests;
 
+import com.codeborne.selenide.WebDriverRunner;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
@@ -16,6 +18,10 @@ public class BaseTestsChrome {
 
     @AfterTest
     public static void tearDown(){
+        logger.info("tearDown()");
 
+        WebDriver webDriver = WebDriverRunner.getWebDriver();
+        logger.info(webDriver.getClass());
+        webDriver.quit();
     }
 }

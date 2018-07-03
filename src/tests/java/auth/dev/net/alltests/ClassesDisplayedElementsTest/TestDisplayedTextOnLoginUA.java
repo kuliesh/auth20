@@ -22,7 +22,7 @@ public class TestDisplayedTextOnLoginUA extends BaseTestsChrome {
 
     //Активація дата провайдера
     @DataProvider
-    public Object[][] TextUAForRegistration (Method method){
+    public Object[][] TextUAForLogin (Method method){
 
         ApachePOIreadHelper excelReader = new ApachePOIreadHelper();
         File file = new File("D:/AutomationTest/auth20/src/tests/java/auth/dev/net/data_files/text_login_page_data.xlsx");
@@ -39,7 +39,7 @@ public class TestDisplayedTextOnLoginUA extends BaseTestsChrome {
         refresh();
     }
 
-    @Test(dataProvider = "TextUAForRegistration")
+    @Test(dataProvider = "TextUAForLogin")
     public void textUkr(ArrayList data) {
 
         String local= String.valueOf(data.get(0));

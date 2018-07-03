@@ -23,7 +23,7 @@ public class TestDisplayedTextOnLoginRU extends BaseTestsChrome {
 
     //Активація дата провайдера
     @DataProvider
-    public Object[][] TextRUForRegistration (Method method){
+    public Object[][] TextRUForLogin (Method method){
 
         ApachePOIreadHelper excelReader = new ApachePOIreadHelper();
         File file = new File("D:/AutomationTest/auth20/src/tests/java/auth/dev/net/data_files/text_login_page_data.xlsx");
@@ -43,7 +43,7 @@ public class TestDisplayedTextOnLoginRU extends BaseTestsChrome {
         $(new Selectors.ByText("Русский")).click();
     }
 
-    @Test(dataProvider = "TextRUForRegistration")
+    @Test(dataProvider = "TextRUForLogin")
     public void textRu(ArrayList data) {
 
         String local= String.valueOf(data.get(0));

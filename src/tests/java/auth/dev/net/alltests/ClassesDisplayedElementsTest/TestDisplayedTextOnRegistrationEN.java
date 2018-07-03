@@ -29,7 +29,7 @@ public class TestDisplayedTextOnRegistrationEN extends BaseTestsChrome {
 
         ApachePOIreadHelper excelReader = new ApachePOIreadHelper();
         File file = new File("D:/AutomationTest/auth20/src/tests/java/auth/dev/net/data_files/text_registration_page_data.xlsx");
-        excelReader.setExcelFile(String.valueOf(file), "textUA");
+        excelReader.setExcelFile(String.valueOf(file), "textEN");
         List rowsNo = excelReader.getRowContains(method.getName(), 0 );
         return excelReader.getTableArray(rowsNo);
     }

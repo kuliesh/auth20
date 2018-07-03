@@ -111,6 +111,8 @@ public class TestDisplayedElementsOnRegistration extends BaseTestsChrome {
         $(new Selectors.ByText("Русский")).click();
 
         isDispayedElementsReg();
+
+        refresh();
     }
 
     @Test
@@ -123,6 +125,8 @@ public class TestDisplayedElementsOnRegistration extends BaseTestsChrome {
         $(new Selectors.ByText("English")).click();
 
         isDispayedElementsReg();
+
+        refresh();
     }
 
     @Test
@@ -147,5 +151,7 @@ public class TestDisplayedElementsOnRegistration extends BaseTestsChrome {
         softAssertion.assertTrue($(By.xpath("//label[text()='Female']")).isDisplayed(), "Радіобатон 'Female' не відображається");
 
         softAssertion.assertAll();
+
+        refresh();
     }
 }
