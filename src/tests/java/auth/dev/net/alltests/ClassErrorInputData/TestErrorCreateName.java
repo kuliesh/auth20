@@ -1,7 +1,6 @@
 package auth.dev.net.alltests.ClassErrorInputData;
 
 import auth.dev.net.alltests.BaseClassesForTests.BaseTestsChrome;
-
 import auth.dev.net.helpers.ApachePOIreadHelper;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -20,12 +19,11 @@ import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.refresh;
 
 public class TestErrorCreateName extends BaseTestsChrome {
-
     final static Logger logger = Logger.getLogger(TestErrorCreateName.class);
 
     //Активація дата провайдера
     @DataProvider
-    public Object[][] ErrCreateNameUkr (Method method) {
+    public Object[][] InputErrorName (Method method) {
 
         ApachePOIreadHelper excelReader = new ApachePOIreadHelper();
         File file = new File("D:/AutomationTest/auth20/src/tests/java/auth/dev/net/data_files/test_incorrectly_name_acc.xlsx");
@@ -43,8 +41,8 @@ public class TestErrorCreateName extends BaseTestsChrome {
         refresh();
     }
 
-    @Test(dataProvider = "ErrCreateNameUkr")
-    public void forbiddenPassword(ArrayList data) {
+    @Test(dataProvider = "InputErrorName")
+    public void incorNamAcc(ArrayList data) throws InterruptedException {
 
         String testName = String.valueOf(data.get(0));
         String inputName = String.valueOf(data.get(1));
@@ -58,14 +56,13 @@ public class TestErrorCreateName extends BaseTestsChrome {
 
         SoftAssert softAssertion = new SoftAssert();
 
-        System.out.println(""+infoTest+"");
-
         $(By.cssSelector("#id-login")).sendKeys(""+inputName+"");
+        $(By.cssSelector("#id-password-repeat")).click();
 
-        softAssertion.assertEquals(""+displayedError+"", $(By.xpath("form/section[1]/div/p")).getText(),
-                "Перевірка '"+infoTest+"' зі значенням '"+inputName+"' не пройшло для системи з Української локалізації");
+        softAssertion.assertEquals(""+displayedError+"", $(By.xpath("//form/section[1]/div/p")).getText(), "Перевірка '"+displayedError+"' для '"+infoTest+"' не пройшло для системи з Української локалізації");
 
-        $(By.cssSelector("#id-login")).clear();
+        refresh();
         softAssertion.assertAll();
     }
+
 }
