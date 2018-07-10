@@ -50,7 +50,7 @@ public class TestDisplayedElementsOnLogin extends BaseTestsChrome {
     @BeforeClass
     public void openPage() throws InterruptedException {
         logger.info("Open page of login");
-        open("http://accounts-new.dev.ukr.net/login"); //відкриваємо сторінку входу до поштової скриньки
+        open("http://accounts.betadev.ukr.net/login"); //відкриваємо сторінку входу до поштової скриньки
         Thread.sleep(2000);
     }
 

@@ -18,7 +18,7 @@ public class TestLimitAuthentOnSS extends BaseTestsChrome {
     @BeforeClass
     public void openPage() throws InterruptedException {
         logger.info("Login to account");
-        open("http://accounts-new.dev.ukr.net/login"); //відкриваємо сторінку входу до поштової скриньки
+        open("http://accounts.betadev.ukr.net/login"); //відкриваємо сторінку входу до поштової скриньки
 
         //Виконуємо вхід до поштового акаунту
         $(By.cssSelector("#id-l")).sendKeys("rest21_final_001");

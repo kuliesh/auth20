@@ -35,7 +35,7 @@ public class TestErrorCreateName extends BaseTestsChrome {
     @BeforeClass
     public void openPage() throws InterruptedException {
         logger.info("Open page of registration");
-        open("http://accounts-new.dev.ukr.net/login"); //відкриваємо сторінку входу до поштової скриньки
+        open("http://accounts.betadev.ukr.net/login"); //відкриваємо сторінку входу до поштової скриньки
         $(By.linkText("Створити скриньку")).click(); //переходимо на сторінку реєстрації поштової скриньки
         Thread.sleep(2000);
         refresh();
@@ -57,10 +57,10 @@ public class TestErrorCreateName extends BaseTestsChrome {
         SoftAssert softAssertion = new SoftAssert();
 
         $(By.cssSelector("#id-login")).sendKeys(""+inputName+"");
-        $(By.cssSelector(".radio__imitator")).click();
+        $(By.cssSelector("#id-password")).click();
 
         softAssertion.assertEquals(""+displayedError+"", $(By.xpath("//form/section[1]/div/p")).getText(), "Перевірка '"+displayedError+"' для '"+infoTest+"' не пройшло для системи з Української локалізації");
-
+        $(By.cssSelector("#id-login")).clear();
         refresh();
         softAssertion.assertAll();
     }

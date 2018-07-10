@@ -2,23 +2,19 @@ package auth.dev.net.alltests.ClassesDisplayedElementsTest;
 
 import auth.dev.net.alltests.BaseClassesForTests.BaseTestsChrome;
 import auth.dev.net.helpers.ApachePOIreadHelper;
-import com.codeborne.selenide.Selectors;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import org.apache.log4j.Logger;
 
 import java.io.File;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.refresh;
+import static com.codeborne.selenide.Selenide.*;
 
 public class TestDisplayedTextOnRegistrationUA extends BaseTestsChrome {
 
@@ -40,7 +36,7 @@ public class TestDisplayedTextOnRegistrationUA extends BaseTestsChrome {
     @BeforeClass
     public void openPage() throws InterruptedException {
         logger.info("Open page of registration");
-        open("http://accounts-new.dev.ukr.net/login"); //відкриваємо сторінку входу до поштової скриньки
+        open("http://accounts.betadev.ukr.net/login"); //відкриваємо сторінку входу до поштової скриньки
         $(By.linkText("Створити скриньку")).click(); //переходимо на сторінку реєстрації поштової скриньки
         Thread.sleep(2000);
     }

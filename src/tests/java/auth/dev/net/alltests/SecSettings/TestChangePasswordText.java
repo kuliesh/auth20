@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 
 public class TestChangePasswordText extends BaseTestsChrome {
-    Logger logger=Logger.getLogger(TestChangePasswordText.class);
+    final static Logger logger=Logger.getLogger(TestChangePasswordText.class);
 
     private SelenideElement titlePassCh = $(By.xpath("//main/section[3]/a/h1"));
     private String strTitlePassCh= "Строка 'Зміна пароля' не відображається в блоці зміни пароля";
@@ -50,9 +50,9 @@ public class TestChangePasswordText extends BaseTestsChrome {
 @BeforeClass
     public void openPage() throws InterruptedException {
         logger.info("Login to account");
-        open("http://accounts-new.dev.ukr.net/login"); //відкриваємо сторінку входу до поштової скриньки
-        $(By.cssSelector("#id-l")).sendKeys("rest21_final_011");
-        $(By.cssSelector("#id-p")).sendKeys(",fhvfktq11");
+        open("http://accounts.betadev.ukr.net/login"); //відкриваємо сторінку входу до поштової скриньки
+        $(By.cssSelector("#id-l")).sendKeys("rest21_final_001");
+        $(By.cssSelector("#id-p")).sendKeys(",fhvfktq!!");
         $(By.cssSelector(".form__submit")).click();
         //$(new Selectors.ByText("Увійти")).click();
         Thread.sleep(2000);
@@ -69,7 +69,7 @@ public class TestChangePasswordText extends BaseTestsChrome {
     }
 
     public void turnToUA(){
-        open("http://gamma.dev.ukr.net/desktop#settings/interface");
+        open("http://mail.betadev.ukr.net/desktop#settings/interface");
         $(By.xpath("//table/tbody/tr[2]/td[2]/label/span")).click();
         $(By.xpath("//table/tbody/tr[2]/td[2]/div/div/a[text()='Українська']")).click();
         $(By.cssSelector(".accept")).click();
@@ -77,7 +77,7 @@ public class TestChangePasswordText extends BaseTestsChrome {
     }
 
     public void turnToRU(){
-        open("http://gamma.dev.ukr.net/desktop#settings/interface");
+        open("http://mail.betadev.ukr.net/desktop#settings/interface");
         $(By.xpath("//table/tbody/tr[2]/td[2]/label/span")).click();
         $(By.xpath("//table/tbody/tr[2]/td[2]/div/div/a[text()='Русский']")).click();
         $(By.cssSelector(".accept")).click();
@@ -85,7 +85,7 @@ public class TestChangePasswordText extends BaseTestsChrome {
     }
 
     public void turnToEN(){
-        open("http://gamma.dev.ukr.net/desktop#settings/interface");
+        open("http://mail.betadev.ukr.net/desktop#settings/interface");
         $(By.xpath("//table/tbody/tr[2]/td[2]/label/span")).click();
         $(By.xpath("//table/tbody/tr[2]/td[2]/div/div/a[text()='English']")).click();
         $(By.cssSelector(".accept")).click();
@@ -94,7 +94,7 @@ public class TestChangePasswordText extends BaseTestsChrome {
 
     @Test //Перевірка для Української локалізації
     public void TestVerifiedTextUA(){
-        open("http://gamma.dev.ukr.net/desktop#security/changePassword");
+        open("http://mail.betadev.ukr.net/desktop#security/changePassword");
         isRunFrame();
 
         SoftAssert softAssertion = new SoftAssert();
@@ -115,7 +115,7 @@ public class TestChangePasswordText extends BaseTestsChrome {
     public void TestVerifiedTextRU() throws InterruptedException {
         turnToRU();
 
-        open("http://gamma.dev.ukr.net/desktop#security/changePassword");
+        open("http://mail.betadev.ukr.net/desktop#security/changePassword");
         isRunFrame();
 
         SoftAssert softAssertion = new SoftAssert();
@@ -138,7 +138,7 @@ public class TestChangePasswordText extends BaseTestsChrome {
     public void TestVerifiedTextEN(){
         turnToEN();
 
-        open("http://gamma.dev.ukr.net/desktop#security/changePassword");
+        open("http://mail.betadev.ukr.net/desktop#security/changePassword");
         isRunFrame();
 
         SoftAssert softAssertion = new SoftAssert();
