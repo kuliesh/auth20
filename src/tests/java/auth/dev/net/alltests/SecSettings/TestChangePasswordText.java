@@ -11,8 +11,8 @@ import org.testng.asserts.SoftAssert;
 import static com.codeborne.selenide.Selenide.*;
 
 
-public class TestChangePassword extends BaseTestsChrome {
-    Logger logger=Logger.getLogger(TestChangePassword.class);
+public class TestChangePasswordText extends BaseTestsChrome {
+    Logger logger=Logger.getLogger(TestChangePasswordText.class);
 
     private SelenideElement titlePassCh = $(By.xpath("//main/section[3]/a/h1"));
     private String strTitlePassCh= "Строка 'Зміна пароля' не відображається в блоці зміни пароля";
@@ -32,7 +32,22 @@ public class TestChangePassword extends BaseTestsChrome {
     private SelenideElement passIco = $(By.cssSelector(".app-tab__icon.app-tab__icon_change-password"));
     private String strPassIco = "Іконка 'app-tab__icon_change-password' невідображається";
 
-    @BeforeClass
+    private SelenideElement passTextHeader = $(By.cssSelector(".app-tab.app-tab_active  div.app-tab__desc"));
+    private String strPassTextHeader = "Пароль – це унікальний ключ від вашої поштової скриньки. Тому ми радимо дотримуватися рекомендацій зі створення безпечного пароля і час від часу змінювати його заради вашої безпеки.";
+
+    private String strPassTextUA = "Пароль – це унікальний ключ від вашої поштової скриньки. Тому ми радимо дотримуватися\n" +
+            "рекомендацій зі створення\n" +
+            "безпечного пароля і час від часу змінювати його заради вашої безпеки.";
+
+    private String strPassTextRU = "Пароль – это уникальный ключ от вашего почтового ящика. Поэтому мы советуем придерживаться\n" +
+            "рекомендаций по созданию\n" +
+            "безопасного пароля и время от времени менять его ради вашей безопасности.";
+
+    private String strPassTextEN = "Password is a unique token to your mailbox. Therefore, we highly recommend to adhere to the\n" +
+            "tips\n" +
+            "on how to create a strong password and reset it from time to time to keep your account safe.";
+
+@BeforeClass
     public void openPage() throws InterruptedException {
         logger.info("Login to account");
         open("http://accounts-new.dev.ukr.net/login"); //відкриваємо сторінку входу до поштової скриньки
@@ -85,12 +100,14 @@ public class TestChangePassword extends BaseTestsChrome {
         SoftAssert softAssertion = new SoftAssert();
 
         softAssertion.assertEquals("Зміна пароля", titlePassCh.getText(), strTitlePassCh);
+        softAssertion.assertEquals(strPassTextUA, passTextHeader.getText(), strPassTextHeader);
         softAssertion.assertEquals("Введіть поточний пароль", passNow.getText(), strPassNow);
         softAssertion.assertEquals("Придумайте новий пароль", passNew.getText(), strPassNew);
         softAssertion.assertEquals("Введіть новий пароль повторно", passNew2.getText(), strPassNew2);
         softAssertion.assertEquals("Змінити пароль", passButt.getText(), strPassButt);
         softAssertion.assertTrue(passIco.isDisplayed(), strPassIco);
 
+        softAssertion.assertAll();
         isStopFrame();
     }
 
@@ -104,6 +121,7 @@ public class TestChangePassword extends BaseTestsChrome {
         SoftAssert softAssertion = new SoftAssert();
 
         softAssertion.assertEquals("Смена пароля", titlePassCh.getText(), strTitlePassCh);
+        softAssertion.assertEquals(strPassTextRU, passTextHeader.getText(), strPassTextHeader);
         softAssertion.assertEquals("Введите текущий пароль", passNow.getText(), strPassNow);
         softAssertion.assertEquals("Придумайте новый пароль", passNew.getText(), strPassNew);
         softAssertion.assertEquals("Введите новый пароль повторно", passNew2.getText(), strPassNew2);
@@ -126,6 +144,7 @@ public class TestChangePassword extends BaseTestsChrome {
         SoftAssert softAssertion = new SoftAssert();
 
         softAssertion.assertEquals("Password Change", titlePassCh.getText(), strTitlePassCh);
+        softAssertion.assertEquals(strPassTextEN, passTextHeader.getText(), strPassTextHeader);
         softAssertion.assertEquals("Re-enter your current password", passNow.getText(), strPassNow);
         softAssertion.assertEquals("Create a new password", passNew.getText(), strPassNew);
         softAssertion.assertEquals("Confirm your new password", passNew2.getText(), strPassNew2);
