@@ -57,11 +57,10 @@ public class TestErrorCreateName extends BaseTestsChrome {
         SoftAssert softAssertion = new SoftAssert();
 
         $(By.cssSelector("#id-login")).sendKeys(""+inputName+"");
-        $(By.cssSelector("#id-password")).click();
+        $(By.cssSelector("#id-email")).click();
 
         softAssertion.assertEquals(""+displayedError+"", $(By.xpath("//form/section[1]/div/p")).getText(), "Перевірка '"+displayedError+"' для '"+infoTest+"' не пройшло для системи з Української локалізації");
         $(By.cssSelector("#id-login")).clear();
-        refresh();
         softAssertion.assertAll();
     }
 
