@@ -40,8 +40,8 @@ public class TestSessionText extends BaseTestsChrome {
     }
 
     public void isRunFrame(){
-        By iframePassCh = By.cssSelector(".security__iframe");
-        switchTo().frame($(iframePassCh));
+        By iframeSession = By.cssSelector(".security__iframe");
+        switchTo().frame($(iframeSession));
     }
 
     public void isStopFrame(){
