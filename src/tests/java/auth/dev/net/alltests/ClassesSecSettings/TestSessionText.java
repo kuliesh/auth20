@@ -1,4 +1,4 @@
-package auth.dev.net.alltests.SecSettings;
+package auth.dev.net.alltests.ClassesSecSettings;
 
 import auth.dev.net.alltests.BaseClassesForTests.BaseTestsChrome;
 import com.codeborne.selenide.SelenideElement;

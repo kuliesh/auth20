@@ -22,4 +22,23 @@
         </classes>
     </test>
 
+    <test name="ErrorInputData">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="auth.dev.net.alltests.ClassErrorInputData.TestErrorCreateName"/>
+            <class name="auth.dev.net.alltests.ClassErrorInputData.TestForbiddenPassword"/>
+        </classes>
+    </test>
+
+    <test name="SecSettings">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="auth.dev.net.alltests.ClassesSecSettings.TestSessionText"/>
+            <class name="auth.dev.net.alltests.ClassesSecSettings.TestSecrLogText"/>
+            <class name="auth.dev.net.alltests.ClassesSecSettings.TestChangePasswordText"/>
+            <class name="auth.dev.net.alltests.ClassesSecSettings.TestContactText"/>
+            <class name="auth.dev.net.alltests.ClassesSecSettings.TestPersonalText"/>
+        </classes>
+    </test>
+
 </suite>
