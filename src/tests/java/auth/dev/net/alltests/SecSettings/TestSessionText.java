@@ -23,7 +23,9 @@ public class TestSessionText extends BaseTestsChrome {
     private SelenideElement sessionIco = $(By.cssSelector(".app-tab__icon.app-tab__icon_sessions"));
     private String strSessionIco = "Іконка 'app-tab__icon_sessions' невідображається";
 
-    private String strSessionBdText = "Коли хтось входить у скриньку – створюється сесія. Список сесій відображено у цьому розділі. У ньому також міститься інформація про пристрої, на яких зараз відкрито вашу пошту: тип, операційна система, браузер і IP-адреса. Перевірте, чи всі сесії актуальні. Якщо якийсь пристрій більше вам недоступний чи окрема сесія здаватиметься вам підозрілою, закрийте її і змініть пароль.";
+    private String strSessionBdTextUA = "Коли хтось входить у скриньку – створюється сесія. Список сесій відображено у цьому розділі. У ньому також міститься інформація про пристрої, на яких зараз відкрито вашу пошту: тип, операційна система, браузер і IP-адреса. Перевірте, чи всі сесії актуальні. Якщо якийсь пристрій більше вам недоступний чи окрема сесія здаватиметься вам підозрілою, закрийте її і змініть пароль.";
+    private String strSessionBdTextRU = "Когда кто-то входит в ящик – создается сессия. Список сессий отображается в этом разделе. В нем также содержится информация об устройствах, на которых сейчас открыта ваша почта: тип, операционная система, браузер и IP-адрес. Проверьте, все ли сессии актуальны. Если какое-то устройство больше вам недоступно или отдельная сессия покажется вам подозрительной, закройте ее и смените пароль.";
+    private String strSessionBdTextEN = "When someone signs into your account, a session is being initiated. A list of sessions is available here. It shows a list of devices, which are currently used to access your account, including their details: types, OS, browser and IP address. Please, check for your sign-in history. If you don’t own any of such devices or any of your sessions appear to be unfamiliar, end that session and reset your password.";
 
     @BeforeClass
     public void openPage() throws InterruptedException {
@@ -47,7 +49,7 @@ public class TestSessionText extends BaseTestsChrome {
     }
 
     public void turnToUA(){
-        open("http://mail.betadev.ukr.net/desktop#settings/interface");
+        open("https://mail.betadev.ukr.net/desktop#settings/interface");
         $(By.xpath("//table/tbody/tr[2]/td[2]/label/span")).click();
         $(By.xpath("//table/tbody/tr[2]/td[2]/div/div/a[text()='Українська']")).click();
         $(By.cssSelector(".accept")).click();
@@ -55,7 +57,7 @@ public class TestSessionText extends BaseTestsChrome {
     }
 
     public void turnToRU(){
-        open("http://mail.betadev.ukr.net/desktop#settings/interface");
+        open("https://mail.betadev.ukr.net/desktop#settings/interface");
         $(By.xpath("//table/tbody/tr[2]/td[2]/label/span")).click();
         $(By.xpath("//table/tbody/tr[2]/td[2]/div/div/a[text()='Русский']")).click();
         $(By.cssSelector(".accept")).click();
@@ -63,7 +65,7 @@ public class TestSessionText extends BaseTestsChrome {
     }
 
     public void turnToEN(){
-        open("http://mail.betadev.ukr.net/desktopp#settings/interface");
+        open("https://mail.betadev.ukr.net/desktop#settings/interface");
         $(By.xpath("//table/tbody/tr[2]/td[2]/label/span")).click();
         $(By.xpath("//table/tbody/tr[2]/td[2]/div/div/a[text()='English']")).click();
         $(By.cssSelector(".accept")).click();
@@ -78,10 +80,50 @@ public class TestSessionText extends BaseTestsChrome {
         SoftAssert softAssertion = new SoftAssert();
 
         softAssertion.assertEquals("Відкриті сесії", titleSession.getText(), strTitleSession);
-        softAssertion.assertEquals(strSessionBdText, sessionBd.getText(), strSessionBd);
+        softAssertion.assertEquals(strSessionBdTextUA, sessionBd.getText(), strSessionBd);
         softAssertion.assertTrue(sessionIco.isDisplayed(), strSessionIco);
 
         softAssertion.assertAll();
         isStopFrame();
+    }
+
+    @Test //Перевірка для Російської локалізації
+    public void TestVerifiedTextRU(){
+
+        turnToRU();
+
+        open("http://mail.betadev.ukr.net/desktop#security");
+        isRunFrame();
+
+        SoftAssert softAssertion = new SoftAssert();
+
+        softAssertion.assertEquals("Открытые сессии", titleSession.getText(), strTitleSession);
+        softAssertion.assertEquals(strSessionBdTextRU, sessionBd.getText(), strSessionBd);
+        softAssertion.assertTrue(sessionIco.isDisplayed(), strSessionIco);
+
+        softAssertion.assertAll();
+        isStopFrame();
+
+        turnToUA();
+    }
+
+    @Test //Перевірка для Англійської локалізації
+    public void TestVerifiedTextEN(){
+
+        turnToEN();
+
+        open("http://mail.betadev.ukr.net/desktop#security");
+        isRunFrame();
+
+        SoftAssert softAssertion = new SoftAssert();
+
+        softAssertion.assertEquals("Open Sessions", titleSession.getText(), strTitleSession);
+        softAssertion.assertEquals(strSessionBdTextEN, sessionBd.getText(), strSessionBd);
+        softAssertion.assertTrue(sessionIco.isDisplayed(), strSessionIco);
+
+        softAssertion.assertAll();
+        isStopFrame();
+
+        turnToUA();
     }
 }
