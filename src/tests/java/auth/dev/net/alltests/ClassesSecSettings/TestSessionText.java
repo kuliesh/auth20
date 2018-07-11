@@ -74,6 +74,9 @@ public class TestSessionText extends BaseTestsChrome {
 
     @Test //Перевірка для Української локалізації
     public void TestVerifiedTextUA(){
+
+        turnToUA();
+
         open("http://mail.betadev.ukr.net/desktop#security");
         isRunFrame();
 
