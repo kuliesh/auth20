@@ -85,45 +85,13 @@ public class TestDeleteText extends BaseTestsChrome {
         refresh();
     }
 
-    public void isRunFrame(){
-        By iframeDelete = By.cssSelector(".security__iframe");
-        switchTo().frame($(iframeDelete));
-    }
-
-    public void isStopFrame(){
-        switchTo().defaultContent();
-    }
-
-    public void turnToUA(){
-        open("https://mail.betadev.ukr.net/desktop#settings/interface");
-        $(By.xpath("//table/tbody/tr[2]/td[2]/label/span")).click();
-        $(By.xpath("//table/tbody/tr[2]/td[2]/div/div/a[text()='Українська']")).click();
-        $(By.cssSelector(".accept")).click();
-        refresh();
-    }
-
-    public void turnToRU(){
-        open("https://mail.betadev.ukr.net/desktop#settings/interface");
-        $(By.xpath("//table/tbody/tr[2]/td[2]/label/span")).click();
-        $(By.xpath("//table/tbody/tr[2]/td[2]/div/div/a[text()='Русский']")).click();
-        $(By.cssSelector(".accept")).click();
-        refresh();
-    }
-
-    public void turnToEN(){
-        open("https://mail.betadev.ukr.net/desktop#settings/interface");
-        $(By.xpath("//table/tbody/tr[2]/td[2]/label/span")).click();
-        $(By.xpath("//table/tbody/tr[2]/td[2]/div/div/a[text()='English']")).click();
-        $(By.cssSelector(".accept")).click();
-        refresh();
-    }
-
     @Test //Перевірка для Української локалізації
     public void TestVerifiedTextUA(){
 
         turnToUA();
 
         open("http://mail.betadev.ukr.net/desktop#security/deleteAccount");
+
         isRunFrame();
 
         SoftAssert softAssertion = new SoftAssert();
@@ -157,6 +125,7 @@ public class TestDeleteText extends BaseTestsChrome {
         softAssertion.assertTrue(deleteElText10.isDisplayed(), strDeleteElText10);
 
         softAssertion.assertAll();
+
         isStopFrame();
     }
 
@@ -166,6 +135,7 @@ public class TestDeleteText extends BaseTestsChrome {
         turnToRU();
 
         open("http://mail.betadev.ukr.net/desktop#security/deleteAccount");
+
         isRunFrame();
 
         SoftAssert softAssertion = new SoftAssert();
@@ -200,6 +170,7 @@ public class TestDeleteText extends BaseTestsChrome {
         softAssertion.assertTrue(deleteElText10.isDisplayed(), strDeleteElText10);
 
         softAssertion.assertAll();
+
         isStopFrame();
 
         turnToUA();
@@ -211,6 +182,7 @@ public class TestDeleteText extends BaseTestsChrome {
         turnToEN();
 
         open("http://mail.betadev.ukr.net/desktop#security/deleteAccount");
+
         isRunFrame();
 
         SoftAssert softAssertion = new SoftAssert();
@@ -244,6 +216,7 @@ public class TestDeleteText extends BaseTestsChrome {
         softAssertion.assertTrue(deleteElText10.isDisplayed(), strDeleteElText10);
 
         softAssertion.assertAll();
+
         isStopFrame();
 
         turnToUA();

@@ -59,45 +59,13 @@ public class TestChangePasswordText extends BaseTestsChrome {
         refresh();
     }
 
-    public void isRunFrame(){
-        By iframePassCh = By.cssSelector(".security__iframe");
-        switchTo().frame($(iframePassCh));
-    }
-
-    public void isStopFrame(){
-        switchTo().defaultContent();
-    }
-
-    public void turnToUA(){
-        open("http://mail.betadev.ukr.net/desktop#settings/interface");
-        $(By.xpath("//table/tbody/tr[2]/td[2]/label/span")).click();
-        $(By.xpath("//table/tbody/tr[2]/td[2]/div/div/a[text()='Українська']")).click();
-        $(By.cssSelector(".accept")).click();
-        refresh();
-    }
-
-    public void turnToRU(){
-        open("http://mail.betadev.ukr.net/desktop#settings/interface");
-        $(By.xpath("//table/tbody/tr[2]/td[2]/label/span")).click();
-        $(By.xpath("//table/tbody/tr[2]/td[2]/div/div/a[text()='Русский']")).click();
-        $(By.cssSelector(".accept")).click();
-        refresh();
-    }
-
-    public void turnToEN(){
-        open("http://mail.betadev.ukr.net/desktop#settings/interface");
-        $(By.xpath("//table/tbody/tr[2]/td[2]/label/span")).click();
-        $(By.xpath("//table/tbody/tr[2]/td[2]/div/div/a[text()='English']")).click();
-        $(By.cssSelector(".accept")).click();
-        refresh();
-    }
-
     @Test //Перевірка для Української локалізації
     public void TestVerifiedTextUA(){
 
         turnToUA();
 
         open("http://mail.betadev.ukr.net/desktop#security/changePassword");
+
         isRunFrame();
 
         SoftAssert softAssertion = new SoftAssert();
@@ -111,14 +79,17 @@ public class TestChangePasswordText extends BaseTestsChrome {
         softAssertion.assertTrue(passIco.isDisplayed(), strPassIco);
 
         softAssertion.assertAll();
+
         isStopFrame();
     }
 
     @Test //Перевірка для Російської локалізації
     public void TestVerifiedTextRU() throws InterruptedException {
-        turnToRU();
+
+    turnToRU();
 
         open("http://mail.betadev.ukr.net/desktop#security/changePassword");
+
         isRunFrame();
 
         SoftAssert softAssertion = new SoftAssert();
@@ -132,6 +103,7 @@ public class TestChangePasswordText extends BaseTestsChrome {
         softAssertion.assertTrue(passIco.isDisplayed(), strPassIco);
 
         softAssertion.assertAll();
+
         isStopFrame();
 
         turnToUA();
@@ -142,6 +114,7 @@ public class TestChangePasswordText extends BaseTestsChrome {
         turnToEN();
 
         open("http://mail.betadev.ukr.net/desktop#security/changePassword");
+
         isRunFrame();
 
         SoftAssert softAssertion = new SoftAssert();
@@ -155,6 +128,7 @@ public class TestChangePasswordText extends BaseTestsChrome {
         softAssertion.assertTrue(passIco.isDisplayed(), strPassIco);
 
         softAssertion.assertAll();
+
         isStopFrame();
 
         turnToUA();

@@ -22,13 +22,13 @@
         </classes>
     </test>
 
-    <test name="ErrorInputData">
+    <!--test name="ErrorInputData">
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="auth.dev.net.alltests.ClassErrorInputData.TestErrorCreateName"/>
             <class name="auth.dev.net.alltests.ClassErrorInputData.TestForbiddenPassword"/>
         </classes>
-    </test>
+    </test-->
 
     <test name="SecSettings">
         <parameter name="browser" value="chrome"/>

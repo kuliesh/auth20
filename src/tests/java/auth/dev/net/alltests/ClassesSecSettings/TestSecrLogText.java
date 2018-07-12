@@ -38,45 +38,13 @@ public class TestSecrLogText extends BaseTestsChrome {
         refresh();
     }
 
-    public void isRunFrame(){
-        By iframeSecLog = By.cssSelector(".security__iframe");
-        switchTo().frame($(iframeSecLog));
-    }
-
-    public void isStopFrame(){
-        switchTo().defaultContent();
-    }
-
-    public void turnToUA(){
-        open("https://mail.betadev.ukr.net/desktop#settings/interface");
-        $(By.xpath("//table/tbody/tr[2]/td[2]/label/span")).click();
-        $(By.xpath("//table/tbody/tr[2]/td[2]/div/div/a[text()='Українська']")).click();
-        $(By.cssSelector(".accept")).click();
-        refresh();
-    }
-
-    public void turnToRU(){
-        open("https://mail.betadev.ukr.net/desktop#settings/interface");
-        $(By.xpath("//table/tbody/tr[2]/td[2]/label/span")).click();
-        $(By.xpath("//table/tbody/tr[2]/td[2]/div/div/a[text()='Русский']")).click();
-        $(By.cssSelector(".accept")).click();
-        refresh();
-    }
-
-    public void turnToEN(){
-        open("https://mail.betadev.ukr.net/desktop#settings/interface");
-        $(By.xpath("//table/tbody/tr[2]/td[2]/label/span")).click();
-        $(By.xpath("//table/tbody/tr[2]/td[2]/div/div/a[text()='English']")).click();
-        $(By.cssSelector(".accept")).click();
-        refresh();
-    }
-
     @Test //Перевірка для Української локалізації
     public void TestVerifiedTextUA(){
 
         turnToUA();
 
         open("http://mail.betadev.ukr.net/desktop#security/actions");
+
         isRunFrame();
 
         SoftAssert softAssertion = new SoftAssert();
@@ -86,6 +54,7 @@ public class TestSecrLogText extends BaseTestsChrome {
         softAssertion.assertTrue(secrLogIco.isDisplayed(), strSecrLogIco);
 
         softAssertion.assertAll();
+
         isStopFrame();
     }
 
@@ -95,6 +64,7 @@ public class TestSecrLogText extends BaseTestsChrome {
         turnToRU();
 
         open("http://mail.betadev.ukr.net/desktop#security/actions");
+
         isRunFrame();
 
         SoftAssert softAssertion = new SoftAssert();
@@ -104,6 +74,7 @@ public class TestSecrLogText extends BaseTestsChrome {
         softAssertion.assertTrue(secrLogIco.isDisplayed(), strSecrLogIco);
 
         softAssertion.assertAll();
+
         isStopFrame();
 
         turnToUA();
@@ -115,6 +86,7 @@ public class TestSecrLogText extends BaseTestsChrome {
         turnToEN();
 
         open("http://mail.betadev.ukr.net/desktop#security/actions");
+
         isRunFrame();
 
         SoftAssert softAssertion = new SoftAssert();
@@ -124,6 +96,7 @@ public class TestSecrLogText extends BaseTestsChrome {
         softAssertion.assertTrue(secrLogIco.isDisplayed(), strSecrLogIco);
 
         softAssertion.assertAll();
+
         isStopFrame();
 
         turnToUA();

@@ -47,45 +47,13 @@ public class TestContactText extends BaseTestsChrome {
         refresh();
     }
 
-    public void isRunFrame(){
-        By iframeContact = By.cssSelector(".security__iframe");
-        switchTo().frame($(iframeContact));
-    }
-
-    public void isStopFrame(){
-        switchTo().defaultContent();
-    }
-
-    public void turnToUA(){
-        open("https://mail.betadev.ukr.net/desktop#settings/interface");
-        $(By.xpath("//table/tbody/tr[2]/td[2]/label/span")).click();
-        $(By.xpath("//table/tbody/tr[2]/td[2]/div/div/a[text()='Українська']")).click();
-        $(By.cssSelector(".accept")).click();
-        refresh();
-    }
-
-    public void turnToRU(){
-        open("https://mail.betadev.ukr.net/desktop#settings/interface");
-        $(By.xpath("//table/tbody/tr[2]/td[2]/label/span")).click();
-        $(By.xpath("//table/tbody/tr[2]/td[2]/div/div/a[text()='Русский']")).click();
-        $(By.cssSelector(".accept")).click();
-        refresh();
-    }
-
-    public void turnToEN(){
-        open("https://mail.betadev.ukr.net/desktop#settings/interface");
-        $(By.xpath("//table/tbody/tr[2]/td[2]/label/span")).click();
-        $(By.xpath("//table/tbody/tr[2]/td[2]/div/div/a[text()='English']")).click();
-        $(By.cssSelector(".accept")).click();
-        refresh();
-    }
-
     @Test //Перевірка для Української локалізації
     public void TestVerifiedTextUA(){
 
         turnToUA();
 
         open("http://mail.betadev.ukr.net/desktop#security/contacts");
+
         isRunFrame();
 
         SoftAssert softAssertion = new SoftAssert();
@@ -99,6 +67,7 @@ public class TestContactText extends BaseTestsChrome {
         softAssertion.assertEquals("додати резервний e-mail", contactEmailBut.getText(), strContactBut);
 
         softAssertion.assertAll();
+
         isStopFrame();
     }
 
@@ -108,6 +77,7 @@ public class TestContactText extends BaseTestsChrome {
         turnToRU();
 
         open("http://mail.betadev.ukr.net/desktop#security/contacts");
+
         isRunFrame();
 
         SoftAssert softAssertion = new SoftAssert();
@@ -131,6 +101,7 @@ public class TestContactText extends BaseTestsChrome {
         turnToEN();
 
         open("http://mail.betadev.ukr.net/desktop#security/contacts");
+
         isRunFrame();
 
         SoftAssert softAssertion = new SoftAssert();
@@ -143,6 +114,7 @@ public class TestContactText extends BaseTestsChrome {
         softAssertion.assertEquals("Optional recovery e-mail address", contactEmailTit.getText(), strContactEmailTit);
         softAssertion.assertEquals("add optional recovery e-mail address", contactEmailBut.getText(), strContactBut);
         softAssertion.assertAll();
+
         isStopFrame();
 
         turnToUA();

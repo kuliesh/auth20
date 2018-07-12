@@ -9,7 +9,6 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Selenide.switchTo;
 
 public class TestSessionText extends BaseTestsChrome {
     final static  Logger logger = Logger.getLogger(TestSessionText.class);
@@ -39,45 +38,13 @@ public class TestSessionText extends BaseTestsChrome {
         refresh();
     }
 
-    public void isRunFrame(){
-        By iframeSession = By.cssSelector(".security__iframe");
-        switchTo().frame($(iframeSession));
-    }
-
-    public void isStopFrame(){
-        switchTo().defaultContent();
-    }
-
-    public void turnToUA(){
-        open("https://mail.betadev.ukr.net/desktop#settings/interface");
-        $(By.xpath("//table/tbody/tr[2]/td[2]/label/span")).click();
-        $(By.xpath("//table/tbody/tr[2]/td[2]/div/div/a[text()='Українська']")).click();
-        $(By.cssSelector(".accept")).click();
-        refresh();
-    }
-
-    public void turnToRU(){
-        open("https://mail.betadev.ukr.net/desktop#settings/interface");
-        $(By.xpath("//table/tbody/tr[2]/td[2]/label/span")).click();
-        $(By.xpath("//table/tbody/tr[2]/td[2]/div/div/a[text()='Русский']")).click();
-        $(By.cssSelector(".accept")).click();
-        refresh();
-    }
-
-    public void turnToEN(){
-        open("https://mail.betadev.ukr.net/desktop#settings/interface");
-        $(By.xpath("//table/tbody/tr[2]/td[2]/label/span")).click();
-        $(By.xpath("//table/tbody/tr[2]/td[2]/div/div/a[text()='English']")).click();
-        $(By.cssSelector(".accept")).click();
-        refresh();
-    }
-
     @Test //Перевірка для Української локалізації
     public void TestVerifiedTextUA(){
 
         turnToUA();
 
         open("http://mail.betadev.ukr.net/desktop#security");
+
         isRunFrame();
 
         SoftAssert softAssertion = new SoftAssert();
@@ -87,6 +54,7 @@ public class TestSessionText extends BaseTestsChrome {
         softAssertion.assertTrue(sessionIco.isDisplayed(), strSessionIco);
 
         softAssertion.assertAll();
+
         isStopFrame();
     }
 
@@ -96,6 +64,7 @@ public class TestSessionText extends BaseTestsChrome {
         turnToRU();
 
         open("http://mail.betadev.ukr.net/desktop#security");
+
         isRunFrame();
 
         SoftAssert softAssertion = new SoftAssert();
@@ -105,6 +74,7 @@ public class TestSessionText extends BaseTestsChrome {
         softAssertion.assertTrue(sessionIco.isDisplayed(), strSessionIco);
 
         softAssertion.assertAll();
+
         isStopFrame();
 
         turnToUA();
@@ -116,6 +86,7 @@ public class TestSessionText extends BaseTestsChrome {
         turnToEN();
 
         open("http://mail.betadev.ukr.net/desktop#security");
+
         isRunFrame();
 
         SoftAssert softAssertion = new SoftAssert();
@@ -125,6 +96,7 @@ public class TestSessionText extends BaseTestsChrome {
         softAssertion.assertTrue(sessionIco.isDisplayed(), strSessionIco);
 
         softAssertion.assertAll();
+
         isStopFrame();
 
         turnToUA();

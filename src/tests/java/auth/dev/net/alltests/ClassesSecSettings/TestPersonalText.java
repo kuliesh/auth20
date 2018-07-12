@@ -51,45 +51,13 @@ public class TestPersonalText extends BaseTestsChrome {
         refresh();
     }
 
-    public void isRunFrame(){
-        By iframePersonal = By.cssSelector(".security__iframe");
-        switchTo().frame($(iframePersonal));
-    }
-
-    public void isStopFrame(){
-        switchTo().defaultContent();
-    }
-
-    public void turnToUA(){
-        open("https://mail.betadev.ukr.net/desktop#settings/interface");
-        $(By.xpath("//table/tbody/tr[2]/td[2]/label/span")).click();
-        $(By.xpath("//table/tbody/tr[2]/td[2]/div/div/a[text()='Українська']")).click();
-        $(By.cssSelector(".accept")).click();
-        refresh();
-    }
-
-    public void turnToRU(){
-        open("https://mail.betadev.ukr.net/desktop#settings/interface");
-        $(By.xpath("//table/tbody/tr[2]/td[2]/label/span")).click();
-        $(By.xpath("//table/tbody/tr[2]/td[2]/div/div/a[text()='Русский']")).click();
-        $(By.cssSelector(".accept")).click();
-        refresh();
-    }
-
-    public void turnToEN(){
-        open("https://mail.betadev.ukr.net/desktop#settings/interface");
-        $(By.xpath("//table/tbody/tr[2]/td[2]/label/span")).click();
-        $(By.xpath("//table/tbody/tr[2]/td[2]/div/div/a[text()='English']")).click();
-        $(By.cssSelector(".accept")).click();
-        refresh();
-    }
-
     @Test //Перевірка для Української локалізації
     public void TestVerifiedTextUA(){
 
         turnToUA();
 
         open("http://mail.betadev.ukr.net/desktop#security/personalData");
+
         isRunFrame();
 
         SoftAssert softAssertion = new SoftAssert();
@@ -106,6 +74,7 @@ public class TestPersonalText extends BaseTestsChrome {
         softAssertion.assertTrue(personalBut.isDisplayed(), strPersonalBut);
 
         softAssertion.assertAll();
+
         isStopFrame();
     }
 
@@ -115,6 +84,7 @@ public class TestPersonalText extends BaseTestsChrome {
         turnToRU();
 
         open("http://mail.betadev.ukr.net/desktop#security/personalData");
+
         isRunFrame();
 
         SoftAssert softAssertion = new SoftAssert();
@@ -131,6 +101,7 @@ public class TestPersonalText extends BaseTestsChrome {
         softAssertion.assertTrue(personalBut.isDisplayed(), strPersonalBut);
 
         softAssertion.assertAll();
+
         isStopFrame();
 
         turnToUA();
@@ -142,6 +113,7 @@ public class TestPersonalText extends BaseTestsChrome {
         turnToEN();
 
         open("http://mail.betadev.ukr.net/desktop#security/personalData");
+
         isRunFrame();
 
         SoftAssert softAssertion = new SoftAssert();
@@ -158,6 +130,7 @@ public class TestPersonalText extends BaseTestsChrome {
         softAssertion.assertTrue(personalBut.isDisplayed(), strPersonalBut);
 
         softAssertion.assertAll();
+
         isStopFrame();
 
         turnToUA();
