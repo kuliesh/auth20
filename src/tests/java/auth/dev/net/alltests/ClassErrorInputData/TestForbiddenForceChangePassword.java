@@ -15,19 +15,17 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.refresh;
+import static com.codeborne.selenide.Selenide.*;
 
-public class TestForbiddenPassword extends BaseTestsChrome {
-    final static Logger logger = Logger.getLogger(TestForbiddenPassword.class);
+public class TestForbiddenForceChangePassword extends BaseTestsChrome {
+    final static Logger logger = Logger.getLogger(TestForbiddenForceChangePassword.class);
 
     //Активація дата провайдера
     @DataProvider
     public Object[][] ForbiddenPassword (Method method) {
 
         ApachePOIreadHelper excelReader = new ApachePOIreadHelper();
-        File file = new File("D:/AutomationTest/auth20/src/tests/java/auth/dev/net/data_files/test_forbidden_password.xlsx");
+        File file = new File("D:/AutomationTest/auth20/src/tests/java/auth/dev/net/data_files/test_forbidden_password_reset_UKR.xlsx");
         excelReader.setExcelFile(String.valueOf(file), "ForbiddenTest");
         List rowsNo = excelReader.getRowContains(method.getName(), 0);
         return excelReader.getTableArray(rowsNo);
@@ -35,15 +33,21 @@ public class TestForbiddenPassword extends BaseTestsChrome {
 
     @BeforeClass
     public void openPage() throws InterruptedException {
-        logger.info("Open page of registration");
-        open("http://accounts-new.dev.ukr.net/login"); //відкриваємо сторінку входу до поштової скриньки
-        $(By.linkText("Створити скриньку")).click(); //переходимо на сторінку реєстрації поштової скриньки
+        logger.info("Open page of force change password activation page");
+
+        open("http://accounts-new.dev.ukr.net/debug/force_pwd_change/reset_014@dev.ukr.net");
+        open("https://accounts-new.dev.ukr.net/login"); //відкриваємо сторінку входу до поштової скриньки
+        $(By.cssSelector("#id-l")).sendKeys("reset_014");
+        $(By.cssSelector("#id-p")).sendKeys(",fhvfktq");
+        $(By.cssSelector(".form__submit")).click();
         Thread.sleep(2000);
         refresh();
     }
 
     @Test(dataProvider = "ForbiddenPassword")
     public void forbiddenPassword(ArrayList data) {
+
+        //isRunFrame();
 
         String testName = String.valueOf(data.get(0));
         String inputPassword = String.valueOf(data.get(1));
@@ -55,12 +59,14 @@ public class TestForbiddenPassword extends BaseTestsChrome {
 
         SoftAssert softAssertion = new SoftAssert();
 
-        $(By.cssSelector("#id-password")).sendKeys(""+inputPassword+"");
-        $(By.cssSelector("#id-password-repeat")).click();
+        $(By.cssSelector("#id-new-input")).sendKeys(""+inputPassword+"");
+        $(By.cssSelector(".button.button_type-submit.button_size-large.form__submit")).click();
 
-        softAssertion.assertEquals(""+displayedError+"", $(By.cssSelector(".input-default__error.is-size-normal")).getText(), "Пароль '"+inputPassword+"' сприймається системою ");
+        softAssertion.assertEquals(""+displayedError+"", $(By.cssSelector(".input-text__error")).getText(), "Пароль '"+inputPassword+"' сприймається системою");
 
-        $(By.cssSelector("#id-password")).clear();
+        $(By.cssSelector("#id-new-input")).clear();
         softAssertion.assertAll();
+
+       // isStopFrame();
     }
 }
