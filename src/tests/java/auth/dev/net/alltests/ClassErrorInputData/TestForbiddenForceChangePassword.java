@@ -35,10 +35,11 @@ public class TestForbiddenForceChangePassword extends BaseTestsChrome {
     public void openPage() throws InterruptedException {
         logger.info("Open page of force change password activation page");
 
-        open("http://accounts-new.dev.ukr.net/debug/force_pwd_change/reset_014@dev.ukr.net");
-        open("https://accounts-new.dev.ukr.net/login"); //відкриваємо сторінку входу до поштової скриньки
-        $(By.cssSelector("#id-l")).sendKeys("reset_014");
-        $(By.cssSelector("#id-p")).sendKeys(",fhvfktq");
+        //open("http://accounts-new.dev.ukr.net/debug/force_pwd_change/reset_014@dev.ukr.net");
+        open("http://accounts.dev.ukr.net/login");
+        //open("https://accounts.betadev.ukr.net/login"); //відкриваємо сторінку входу до поштової скриньки
+        $(By.cssSelector("#id-l")).sendKeys("reset_007");
+        $(By.cssSelector("#id-p")).sendKeys(",fhvfktq4");
         $(By.cssSelector(".form__submit")).click();
         Thread.sleep(2000);
         refresh();
@@ -46,8 +47,6 @@ public class TestForbiddenForceChangePassword extends BaseTestsChrome {
 
     @Test(dataProvider = "ForbiddenPassword")
     public void forbiddenPassword(ArrayList data) {
-
-        //isRunFrame();
 
         String testName = String.valueOf(data.get(0));
         String inputPassword = String.valueOf(data.get(1));
@@ -66,7 +65,5 @@ public class TestForbiddenForceChangePassword extends BaseTestsChrome {
 
         $(By.cssSelector("#id-new-input")).clear();
         softAssertion.assertAll();
-
-       // isStopFrame();
     }
 }

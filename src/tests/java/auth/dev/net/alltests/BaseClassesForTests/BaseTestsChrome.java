@@ -21,7 +21,8 @@ public class BaseTestsChrome {
     }
 
     public void turnToUA(){
-        open("https://mail.betadev.ukr.net/desktop#settings/interface");
+        open("https://mail.dev.ukr.net/desktop#settings/interface");
+        //open("https://mail.betadev.ukr.net/desktop#settings/interface");
         $(By.xpath("//table/tbody/tr[2]/td[2]/label/span")).click();
         $(By.xpath("//table/tbody/tr[2]/td[2]/div/div/a[text()='Українська']")).click();
         $(By.cssSelector(".accept")).click();

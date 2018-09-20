@@ -34,9 +34,11 @@ public class TestForbiddenChangePassword extends BaseTestsChrome {
     @BeforeClass
     public void openPage() throws InterruptedException {
         logger.info("Open page of login");
-        open("https://accounts-new.dev.ukr.net/login"); //відкриваємо сторінку входу до поштової скриньки
-        $(By.cssSelector("#id-l")).sendKeys("reset_013");
-        $(By.cssSelector("#id-p")).sendKeys(",fhvfktq");
+        open("http://accounts.dev.ukr.net/login");
+        //open("http://accounts.betadev.ukr.net/login"); //відкриваємо сторінку входу до поштової скриньки
+        $(By.cssSelector("#id-l")).sendKeys("reset_003");
+        $(By.cssSelector("#id-p")).sendKeys(",fhvfktq!");
+        //$(By.cssSelector("#id-p")).sendKeys(",fhvfktq");
         $(By.cssSelector(".form__submit")).click();
         Thread.sleep(2000);
         refresh();
@@ -45,7 +47,8 @@ public class TestForbiddenChangePassword extends BaseTestsChrome {
     @Test(dataProvider = "ForbiddenPassword")
     public void forbiddenPassword(ArrayList data) {
 
-        open("https://gamma.dev.ukr.net/desktop#security/changePassword"); //відкриваємо сторінку зміни пароля в налаштуваннях
+        open("http://prod.dev.ukr.net/desktop#security/changePassword");
+        //open("https://mail.betadev.ukr.net/desktop#security/changePassword"); //відкриваємо сторінку зміни пароля в налаштуваннях
 
         isRunFrame();
 
