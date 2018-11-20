@@ -50,7 +50,7 @@ public class TestDisplayedElementsOnLogin extends BaseTestsChrome {
     @BeforeClass
     public void openPage() throws InterruptedException {
         logger.info("Open page of login");
-        open("http://accounts.dev.ukr.net/login");
+        open("https://accounts-alpha.dev.ukr.net/login");
         //open("http://accounts.betadev.ukr.net/login"); //відкриваємо сторінку входу до поштової скриньки
         Thread.sleep(2000);
     }
@@ -63,7 +63,7 @@ public class TestDisplayedElementsOnLogin extends BaseTestsChrome {
         softAssertion.assertTrue(lang.isDisplayed(), strLang);
         softAssertion.assertTrue(login.isDisplayed(), strLogin);
         softAssertion.assertTrue(password.isDisplayed(), strPassword);
-        softAssertion.assertTrue(yey.isDisplayed(), strYey);
+        //softAssertion.assertTrue(yey.isDisplayed(), strYey);
         softAssertion.assertTrue(checkbox.isDisplayed(), strCheckbox);
         softAssertion.assertTrue(button.isDisplayed(), strButton);
         softAssertion.assertTrue(promo.isDisplayed(), strPromo);

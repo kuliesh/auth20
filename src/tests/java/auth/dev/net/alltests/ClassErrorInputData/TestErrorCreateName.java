@@ -35,7 +35,7 @@ public class TestErrorCreateName extends BaseTestsChrome {
     @BeforeClass
     public void openPage() throws InterruptedException {
         logger.info("Open page of registration");
-        open("http://accounts.dev.ukr.net/login");
+        open("https://accounts-alpha.dev.ukr.net/login");
         //open("http://accounts.betadev.ukr.net/login"); //відкриваємо сторінку входу до поштової скриньки
         $(By.linkText("Створити скриньку")).click(); //переходимо на сторінку реєстрації поштової скриньки
         Thread.sleep(2000);

@@ -50,11 +50,10 @@ public class TestChangePasswordText extends BaseTestsChrome {
 @BeforeClass
     public void openPage() throws InterruptedException {
         logger.info("Login to account");
-        open("http://accounts.betadev.ukr.net/login"); //відкриваємо сторінку входу до поштової скриньки
-        $(By.cssSelector("#id-l")).sendKeys("rest21_final_001");
-        $(By.cssSelector("#id-p")).sendKeys(",fhvfktq!!");
-        $(By.cssSelector(".form__submit")).click();
-        //$(new Selectors.ByText("Увійти")).click();
+        open("https://accounts-alpha.dev.ukr.net/login");  //відкриваємо сторінку входу до поштової скриньки
+        $(By.cssSelector("#id-l")).sendKeys("s.kuliesh");
+        $(By.cssSelector("#id-p")).sendKeys(",fhvfktq!!2019");
+        $(By.cssSelector(".button")).click();
         Thread.sleep(2000);
         refresh();
     }
@@ -64,7 +63,7 @@ public class TestChangePasswordText extends BaseTestsChrome {
 
         turnToUA();
 
-        open("http://mail.betadev.ukr.net/desktop#security/changePassword");
+        open("http://alpha.dev.ukr.net/desktop#security/changePassword");
 
         isRunFrame();
 
@@ -88,7 +87,7 @@ public class TestChangePasswordText extends BaseTestsChrome {
 
     turnToRU();
 
-        open("http://mail.betadev.ukr.net/desktop#security/changePassword");
+        open("http://alpha.dev.ukr.net/desktop#security/changePassword");
 
         isRunFrame();
 
@@ -113,7 +112,7 @@ public class TestChangePasswordText extends BaseTestsChrome {
     public void TestVerifiedTextEN(){
         turnToEN();
 
-        open("http://mail.betadev.ukr.net/desktop#security/changePassword");
+        open("http://alpha.dev.ukr.net/desktop#security/changePassword");
 
         isRunFrame();
 

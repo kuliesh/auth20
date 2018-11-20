@@ -34,13 +34,10 @@ public class TestForbiddenForceChangePassword extends BaseTestsChrome {
     @BeforeClass
     public void openPage() throws InterruptedException {
         logger.info("Open page of force change password activation page");
-
-        //open("http://accounts-new.dev.ukr.net/debug/force_pwd_change/reset_014@dev.ukr.net");
-        open("http://accounts.dev.ukr.net/login");
-        //open("https://accounts.betadev.ukr.net/login"); //відкриваємо сторінку входу до поштової скриньки
-        $(By.cssSelector("#id-l")).sendKeys("reset_007");
-        $(By.cssSelector("#id-p")).sendKeys(",fhvfktq4");
-        $(By.cssSelector(".form__submit")).click();
+        open("https://accounts-alpha.dev.ukr.net/login");  //відкриваємо сторінку входу до поштової скриньки
+        $(By.cssSelector("#id-l")).sendKeys("s.kuliesh");
+        $(By.cssSelector("#id-p")).sendKeys(",fhvfktq!!2019");
+        $(By.cssSelector(".button")).click();
         Thread.sleep(2000);
         refresh();
     }

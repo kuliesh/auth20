@@ -58,7 +58,7 @@ public class TestDeleteText extends BaseTestsChrome {
     private String strDeleteElText5 = "Елемент - п'ятий чекбокс - невідображається";
     private String strDeleteElText6 = "Елемент - шостий чекбокс - невідображається";
     private String strDeleteElText7 = "Елемент - сьомий чекбокс - невідображається";
-    private String strDeleteElText8 = "Елемент - око - невідображається";
+    //private String strDeleteElText8 = "Елемент - око - невідображається";
     private String strDeleteElText9 = "Елемент -  поля вводу - невідображається";
     private String strDeleteElText10 = "Елемент - кнопка видалення - невідображається";
 
@@ -69,18 +69,17 @@ public class TestDeleteText extends BaseTestsChrome {
     private SelenideElement deleteElText5 = $(By.xpath("//main/section[6]/form/div[5]/label[1]"));
     private SelenideElement deleteElText6 = $(By.xpath("//main/section[6]/form/div[6]/label[1]"));
     private SelenideElement deleteElText7 = $(By.xpath("//main/section[6]/form/div[7]/label[1]"));
-    private SelenideElement deleteElText8 = $(By.xpath("//main/section[6]/form/div[9]/div/label/button"));
+    //private SelenideElement deleteElText8 = $(By.xpath("//main/section[6]/form/div[9]/div/label/button"));
     private SelenideElement deleteElText9 = $(By.xpath("//main/section[6]/form/div[9]/div/input"));
     private SelenideElement deleteElText10 = $(By.cssSelector(".button__content"));
 
     @BeforeClass
     public void openPage() throws InterruptedException {
         logger.info("Login to account");
-        open("http://accounts.betadev.ukr.net/login"); //відкриваємо сторінку входу до поштової скриньки
-        $(By.cssSelector("#id-l")).sendKeys("rest21_final_001");
-        $(By.cssSelector("#id-p")).sendKeys(",fhvfktq!!");
-        $(By.cssSelector(".form__submit")).click();
-        //$(new Selectors.ByText("Увійти")).click();
+        open("https://accounts-alpha.dev.ukr.net/login");  //відкриваємо сторінку входу до поштової скриньки
+        $(By.cssSelector("#id-l")).sendKeys("s.kuliesh");
+        $(By.cssSelector("#id-p")).sendKeys(",fhvfktq!!2019");
+        $(By.cssSelector(".button")).click();
         Thread.sleep(2000);
         refresh();
     }
@@ -90,7 +89,7 @@ public class TestDeleteText extends BaseTestsChrome {
 
         turnToUA();
 
-        open("http://mail.betadev.ukr.net/desktop#security/deleteAccount");
+        open("http://alpha.dev.ukr.net/desktop#security/deleteAccount");
 
         isRunFrame();
 
@@ -120,7 +119,7 @@ public class TestDeleteText extends BaseTestsChrome {
         softAssertion.assertTrue(deleteElText5.isDisplayed(), strDeleteElText5);
         softAssertion.assertTrue(deleteElText6.isDisplayed(), strDeleteElText6);
         softAssertion.assertTrue(deleteElText7.isDisplayed(), strDeleteElText7);
-        softAssertion.assertTrue(deleteElText8.isDisplayed(), strDeleteElText8);
+        //softAssertion.assertTrue(deleteElText8.isDisplayed(), strDeleteElText8);
         softAssertion.assertTrue(deleteElText9.isDisplayed(), strDeleteElText9);
         softAssertion.assertTrue(deleteElText10.isDisplayed(), strDeleteElText10);
 
@@ -134,7 +133,7 @@ public class TestDeleteText extends BaseTestsChrome {
 
         turnToRU();
 
-        open("http://mail.betadev.ukr.net/desktop#security/deleteAccount");
+        open("http://alpha.dev.ukr.net/desktop#security/deleteAccount");
 
         isRunFrame();
 
@@ -165,7 +164,7 @@ public class TestDeleteText extends BaseTestsChrome {
         softAssertion.assertTrue(deleteElText5.isDisplayed(), strDeleteElText5);
         softAssertion.assertTrue(deleteElText6.isDisplayed(), strDeleteElText6);
         softAssertion.assertTrue(deleteElText7.isDisplayed(), strDeleteElText7);
-        softAssertion.assertTrue(deleteElText8.isDisplayed(), strDeleteElText8);
+        //softAssertion.assertTrue(deleteElText8.isDisplayed(), strDeleteElText8);
         softAssertion.assertTrue(deleteElText9.isDisplayed(), strDeleteElText9);
         softAssertion.assertTrue(deleteElText10.isDisplayed(), strDeleteElText10);
 
@@ -181,7 +180,7 @@ public class TestDeleteText extends BaseTestsChrome {
 
         turnToEN();
 
-        open("http://mail.betadev.ukr.net/desktop#security/deleteAccount");
+        open("http://alpha.dev.ukr.net/desktop#security/deleteAccount");
 
         isRunFrame();
 
@@ -211,7 +210,7 @@ public class TestDeleteText extends BaseTestsChrome {
         softAssertion.assertTrue(deleteElText5.isDisplayed(), strDeleteElText5);
         softAssertion.assertTrue(deleteElText6.isDisplayed(), strDeleteElText6);
         softAssertion.assertTrue(deleteElText7.isDisplayed(), strDeleteElText7);
-        softAssertion.assertTrue(deleteElText8.isDisplayed(), strDeleteElText8);
+        //softAssertion.assertTrue(deleteElText8.isDisplayed(), strDeleteElText8);
         softAssertion.assertTrue(deleteElText9.isDisplayed(), strDeleteElText9);
         softAssertion.assertTrue(deleteElText10.isDisplayed(), strDeleteElText10);
 

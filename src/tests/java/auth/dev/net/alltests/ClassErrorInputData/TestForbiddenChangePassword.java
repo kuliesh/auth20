@@ -34,12 +34,10 @@ public class TestForbiddenChangePassword extends BaseTestsChrome {
     @BeforeClass
     public void openPage() throws InterruptedException {
         logger.info("Open page of login");
-        open("http://accounts.dev.ukr.net/login");
-        //open("http://accounts.betadev.ukr.net/login"); //відкриваємо сторінку входу до поштової скриньки
-        $(By.cssSelector("#id-l")).sendKeys("reset_003");
-        $(By.cssSelector("#id-p")).sendKeys(",fhvfktq!");
-        //$(By.cssSelector("#id-p")).sendKeys(",fhvfktq");
-        $(By.cssSelector(".form__submit")).click();
+        open("https://accounts-alpha.dev.ukr.net/login");  //відкриваємо сторінку входу до поштової скриньки
+        $(By.cssSelector("#id-l")).sendKeys("s.kuliesh");
+        $(By.cssSelector("#id-p")).sendKeys(",fhvfktq!!2019");
+        $(By.cssSelector(".button")).click();
         Thread.sleep(2000);
         refresh();
     }
@@ -47,8 +45,7 @@ public class TestForbiddenChangePassword extends BaseTestsChrome {
     @Test(dataProvider = "ForbiddenPassword")
     public void forbiddenPassword(ArrayList data) {
 
-        open("http://prod.dev.ukr.net/desktop#security/changePassword");
-        //open("https://mail.betadev.ukr.net/desktop#security/changePassword"); //відкриваємо сторінку зміни пароля в налаштуваннях
+        open("https://alpha.dev.ukr.net/desktop#security/changePassword"); //відкриваємо сторінку зміни пароля в налаштуваннях
 
         isRunFrame();
 
@@ -63,7 +60,7 @@ public class TestForbiddenChangePassword extends BaseTestsChrome {
         SoftAssert softAssertion = new SoftAssert();
 
         $(By.cssSelector("#change-password-new-input")).sendKeys(""+inputPassword+"");
-        $(By.cssSelector(".button.button_type-submit.button_size-normal.change-password__submit")).click();
+        $(By.cssSelector(".button.button_style-main.button_size-compact.change-password__submit")).click();
 
         softAssertion.assertEquals(""+displayedError+"", $(By.cssSelector(".input-text__error")).getText(), "Пароль '"+inputPassword+"' сприймається системою");
 

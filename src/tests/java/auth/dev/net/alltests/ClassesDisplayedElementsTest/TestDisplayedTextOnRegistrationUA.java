@@ -22,6 +22,7 @@ public class TestDisplayedTextOnRegistrationUA extends BaseTestsChrome {
 
     private String section = "//section[3]/section[2]/div/";
 
+
     //Активація дата провайдера
     @DataProvider
     public Object[][] TextUAForRegistration (Method method){
@@ -36,7 +37,7 @@ public class TestDisplayedTextOnRegistrationUA extends BaseTestsChrome {
     @BeforeClass
     public void openPage() throws InterruptedException {
         logger.info("Open page of registration");
-        open("http://accounts.dev.ukr.net/login");
+        open("https://accounts.ukr.net/login");
         //open("http://accounts.betadev.ukr.net/login"); //відкриваємо сторінку входу до поштової скриньки
         $(By.linkText("Створити скриньку")).click(); //переходимо на сторінку реєстрації поштової скриньки
         Thread.sleep(2000);
@@ -69,7 +70,7 @@ public class TestDisplayedTextOnRegistrationUA extends BaseTestsChrome {
         softAssertion.assertFalse($(By.xpath("//input[id='id-first-name'][@placeholder='Ім'я']")).isDisplayed(), "Плехолдер 'Ім'я' не відображається"); //переробити даний запит
         softAssertion.assertTrue($(By.xpath("//section[1]/div/div[2]/input[@placeholder='Прізвище']")).isDisplayed(), "Плехолдер 'Прізвище' не відображається");
         softAssertion.assertTrue($(By.xpath(""+section+"div[1]/input[@placeholder='число']")).isDisplayed(), "Плехолдер 'число' не відображається");
-        softAssertion.assertEquals("місяць", $(By.xpath(""+section+"section/div/span")).getText(),"Напис 'місяць' не відображається");
+        softAssertion.assertEquals("місяць", $(By.xpath(""+section+"section/div/span")).getText(),"Плехолдер 'місяць' не відображається");
         softAssertion.assertTrue($(By.xpath(""+section+"div[2]/input[@placeholder='рік']")).isDisplayed(), "Плехолдер 'рік' не відображається");
         softAssertion.assertEquals("На вказаний мобільний телефон буде відправлено повідомлення з кодом активації" , $(By.xpath("//section[7]/button/span[1]")).getText(), "Строка 'На вказаний мобільний телефон буде відправлено повідомлення з кодом активації' невыдображаэться");
 

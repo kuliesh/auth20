@@ -21,7 +21,7 @@ public class BaseTestsChrome {
     }
 
     public void turnToUA(){
-        open("https://mail.dev.ukr.net/desktop#settings/interface");
+        open("https://alpha.dev.ukr.net/desktop#settings/interface");
         //open("https://mail.betadev.ukr.net/desktop#settings/interface");
         $(By.xpath("//table/tbody/tr[2]/td[2]/label/span")).click();
         $(By.xpath("//table/tbody/tr[2]/td[2]/div/div/a[text()='Українська']")).click();
@@ -30,7 +30,7 @@ public class BaseTestsChrome {
     }
 
     public void turnToRU(){
-        open("https://mail.betadev.ukr.net/desktop#settings/interface");
+        open("https://alpha.dev.ukr.net/desktop#settings/interface");
         $(By.xpath("//table/tbody/tr[2]/td[2]/label/span")).click();
         $(By.xpath("//table/tbody/tr[2]/td[2]/div/div/a[text()='Русский']")).click();
         $(By.cssSelector(".accept")).click();
@@ -38,7 +38,7 @@ public class BaseTestsChrome {
     }
 
     public void turnToEN(){
-        open("https://mail.betadev.ukr.net/desktop#settings/interface");
+        open("https://alpha.dev.ukr.net/desktop#settings/interface");
         $(By.xpath("//table/tbody/tr[2]/td[2]/label/span")).click();
         $(By.xpath("//table/tbody/tr[2]/td[2]/div/div/a[text()='English']")).click();
         $(By.cssSelector(".accept")).click();
