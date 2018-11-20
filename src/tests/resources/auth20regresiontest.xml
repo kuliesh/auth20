@@ -5,39 +5,39 @@
     <test name="ElementsOnRegistration">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="auth.dev.net.alltests.ClassesDisplayedElementsTest.TestDisplayedElementsOnRegistration"/>
-            <class name="auth.dev.net.alltests.ClassesDisplayedElementsTest.TestDisplayedTextOnRegistrationUA"/>
-            <class name="auth.dev.net.alltests.ClassesDisplayedElementsTest.TestDisplayedTextOnRegistrationRU"/>
-            <class name="auth.dev.net.alltests.ClassesDisplayedElementsTest.TestDisplayedTextOnRegistrationEN"/>
+            <class name="TestDisplayedElementsOnRegistration"/>
+            <class name="TestDisplayedTextOnRegistrationUA"/>
+            <class name="TestDisplayedTextOnRegistrationRU"/>
+            <class name="TestDisplayedTextOnRegistrationEN"/>
         </classes>
     </test>
 
     <test name="ElementsOnLogin">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="auth.dev.net.alltests.ClassesDisplayedElementsTest.TestDisplayedElementsOnLogin"/>
-            <class name="auth.dev.net.alltests.ClassesDisplayedElementsTest.TestDisplayedTextOnLoginUA"/>
-            <class name="auth.dev.net.alltests.ClassesDisplayedElementsTest.TestDisplayedTextOnLoginRU"/>
-            <class name="auth.dev.net.alltests.ClassesDisplayedElementsTest.TestDisplayedTextOnLoginEN"/>
+            <class name="TestDisplayedElementsOnLogin"/>
+            <class name="TestDisplayedTextOnLoginUA"/>
+            <class name="TestDisplayedTextOnLoginRU"/>
+            <class name="TestDisplayedTextOnLoginEN"/>
         </classes>
     </test>
 
     <!--test name="ErrorInputData">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="auth.dev.net.alltests.ClassErrorInputData.TestErrorCreateName"/>
-            <class name="auth.dev.net.alltests.ClassErrorInputData.TestForbiddenPassword"/>
+            <class name="TestErrorCreateName"/>
+            <class name="TestForbiddenPassword"/>
         </classes>
     </test-->
 
     <test name="SecSettings">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="auth.dev.net.alltests.ClassesSecSettings.TestSessionText"/>
-            <class name="auth.dev.net.alltests.ClassesSecSettings.TestSecrLogText"/>
-            <class name="auth.dev.net.alltests.ClassesSecSettings.TestChangePasswordText"/>
-            <class name="auth.dev.net.alltests.ClassesSecSettings.TestContactText"/>
-            <class name="auth.dev.net.alltests.ClassesSecSettings.TestPersonalText"/>
+            <class name="TestSessionText"/>
+            <class name="TestSecrLogText"/>
+            <class name="TestChangePasswordText"/>
+            <class name="TestContactText"/>
+            <class name="TestPersonalText"/>
         </classes>
     </test>
 
